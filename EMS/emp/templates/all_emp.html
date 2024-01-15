@@ -4,7 +4,40 @@
 
 {% block content%}
 
-<h1>All EMployee</h1>
+<div>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Department</th>
+            <th scope="col">Location</th>
+            <th scope="col">Role</th>
+            <th scope="col">Salary</th>
+          </tr>
+        </thead>
+        {% for emp in emps %}
+        <tbody>
+            
+          <tr>
+            <th scope="row">{{emp.id}}</th>
+            <td>{{emp.first_name}}</td>
+            <td>{{emp.last_name}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.phone}}</td>
+            <td>{{emp.dept.name}}</td>
+            <td>{{emp.dept.location}}</td>
+            <td>{{emp.role.name}}</td>
+            <td>{{emp.salary}}</td>
+          </tr>
+          
+        </tbody>
+        {% endfor %}
+      </table>
+</div>
 
 
 {% endblock  %}
