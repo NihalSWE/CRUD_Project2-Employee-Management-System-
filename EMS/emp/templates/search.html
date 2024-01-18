@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% block title %}Search Employee Info {% endblock title %}
+{% block content%}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Search Employee</h1>
+                    <form action="{% url 'search'%}" method="post">
+                        {% csrf_token %} 
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Employee First/Last Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ request.POST.name }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dept" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="dept" name="dept" value="{{ request.POST.dept }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <input type="text" class="form-control" id="role" name="role" value="{{ request.POST.role }}">
+                        </div>
+
+                        <hr>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

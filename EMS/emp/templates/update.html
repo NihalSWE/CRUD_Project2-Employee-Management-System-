@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block title %}Update Employee Info {% endblock title %}
+{% block content%}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <h1 class="card-title text-center">Update Employee</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-center">
+                <input type="submit" class="btn btn-success text-center" value="Update">
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

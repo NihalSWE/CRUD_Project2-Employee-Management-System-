@@ -1,43 +1,45 @@
 {% extends "base.html" %} 
 {% block title %}All Employee Info{% endblock title %}
 
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">All Employee's Information</h1><hr>
 
-{% block content%}
-
-<div>
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Department</th>
-            <th scope="col">Location</th>
-            <th scope="col">Role</th>
-            <th scope="col">Salary</th>
-          </tr>
-        </thead>
-        {% for emp in emps %}
-        <tbody>
-            
-          <tr>
-            <th scope="row">{{emp.id}}</th>
-            <td>{{emp.first_name}}</td>
-            <td>{{emp.last_name}}</td>
-            <td>{{emp.email}}</td>
-            <td>{{emp.phone}}</td>
-            <td>{{emp.dept.name}}</td>
-            <td>{{emp.dept.location}}</td>
-            <td>{{emp.role.name}}</td>
-            <td>{{emp.salary}}</td>
-          </tr>
-          
-        </tbody>
-        {% endfor %}
-      </table>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emp in emps %}
+                    <tr>
+                        <th scope="row">{{ emp.id }}</th>
+                        <td>{{ emp.first_name }}</td>
+                        <td>{{ emp.last_name }}</td>
+                        <td>{{ emp.email }}</td>
+                        <td>{{ emp.phone }}</td>
+                        <td>{{ emp.dept.name }}</td>
+                        <td>{{ emp.dept.location }}</td>
+                        <td>{{ emp.role.name }}</td>
+                        <td>{{ emp.salary }}</td>
+                        <td>
+                            <a href="{% url 'update' emp.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
-
-
-{% endblock  %}
+{% endblock %}
